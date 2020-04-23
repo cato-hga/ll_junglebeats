@@ -16,19 +16,22 @@ RSpec.describe "LinkedList" do
   it "appends data to the list" do
     llist = LinkedList.new
     llist.append("algo")
+    llist.append("deep")
     expect(llist.head.data).to eql("algo")
-    expect(llist.head.next_node).to eql(nil)
+    expect(llist.head.next_node.data).to eql("deep")
   end
 
   it "counts how many things are on the list" do
     list = LinkedList.new
     list.append("algo")
-    expect(list.count).to eql(1)
+    list.append("deep")
+    expect(list.count).to eql(2)
   end
 
   it "generates a string of all elements" do
     list = LinkedList.new
     list.append("algo")
-    expect(list.to_string).to eql("algo")
+    list.append("deep")
+    expect(list.to_string).to eql("algo deep")
   end
 end
