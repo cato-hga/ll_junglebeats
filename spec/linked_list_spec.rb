@@ -32,6 +32,25 @@ RSpec.describe "LinkedList" do
     list = LinkedList.new
     list.append("algo")
     list.append("deep")
-    expect(list.to_string).to eql("algo deep")
+    list.prepend("prepend")
+    list.insert(1, "hola")
+    expect(list.to_string).to eql("prepend hola algo deep")
+  end
+
+  it "prepends the node to the beginning of the list" do
+    list = LinkedList.new
+    list.append("algo")
+    list.append("deep")
+    list.prepend("prepend")
+    expect(list.to_string).to eql("prepend algo deep")
+  end
+
+  it "inserts the node at a specific position on the list" do
+    list = LinkedList.new
+    list.append("algo")
+    list.append("deep")
+    list.prepend("prepend")
+    list.insert(1, "hola")
+    expect(list.to_string).to eql("prepend hola algo deep")
   end
 end

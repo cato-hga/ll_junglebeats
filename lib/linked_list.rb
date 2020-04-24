@@ -1,5 +1,4 @@
-require "pry"
-require_relative "./lib/node"
+require_relative "node"
 
 class LinkedList
 
@@ -40,6 +39,26 @@ class LinkedList
       current_node = current_node.next_node
     end
     string_array.join(" ")
+  end
+
+  def prepend(value)
+    node = Node.new(value)
+    node.next_node = @head
+    self.head = node
+  end
+
+  def insert(number, data)
+    new_node = Node.new(data)
+    node = @head
+    n = 1
+    until n == number || node.nil? do
+      node = node.next_node
+      n += 1
+    end
+    current_node = node
+    new_node.next_node = current_node.next_node
+    node.next_node = new_node
+      
   end
 
   private
