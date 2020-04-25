@@ -53,4 +53,60 @@ RSpec.describe "LinkedList" do
     list.insert(1, "hola")
     expect(list.to_string).to eql("prepend hola algo deep")
   end
+
+  it "finds the position of an element and returns it" do
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+    
+    list.find(2, 1)
+
+    expect(list.find(2,1)).to eql("shi")
+    expect(list.find(1,3)).to eql("woo shi shu")
+  end
+
+  it "returns back true of false whether the value is in the list" do
+    list = LinkedList.new
+
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+
+    list.includes?("deep")
+    list.includes?("dep")
+
+    expect(list.includes?("deep")).to eql(true)
+    expect(list.includes?("dep")).to eql(false)
+  end
+
+  # it "returns removed element" do
+  #   list = LinkedList.new
+
+  #   list.append("deep")
+  #   list.append("woo")
+  #   list.append("shi")
+  #   list.append("shu")
+
+  #   list.pop
+    
+  #   expect(list.pop).to eql("shu")
+  # end
+
+  it "removes elements the last element from the list" do
+    list = LinkedList.new
+
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+
+    list.pop
+    
+    expect(list.to_string).to eql("deep woo shi")
+  end
 end

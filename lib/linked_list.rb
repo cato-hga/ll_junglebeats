@@ -57,13 +57,59 @@ class LinkedList
     end
     current_node = node
     new_node.next_node = current_node.next_node
-    node.next_node = new_node
+    node.next_node = new_node 
+  end
+
+  def find(position, amount_return)
+    node = @head
+
+    n = 0
+
+    while n != position do
+      node = node.next_node
+      n += 1
+    end
+    
+    n = 0
+    array_string = []
+    while n != amount_return do
+      array_string << "#{node.data}"
       
+      node = node.next_node
+      n += 1
+    end
+    
+    array_string.join(" ")
+  end
+
+  def includes?(value)
+    node = @head
+
+    unless node.nil? || node.data == value 
+      node = node.next_node
+    end
+
+    node ? node.data == value : false
+  end
+
+  def pop
+    if head.nil?
+      nil
+    else
+      current_node = @head
+      until current_node.next_node.next_node == nil
+        current_node = current_node.next_node
+      end
+    end
+    popped_node = current_node.next_node.data
+    puts "popped_node: #{popped_node}"
+    current_node.next_node = nil
+    return popped_node
   end
 
   private
 
-  def tail_node
+  def tail_node  
     current_node = @head
 
     while !current_node.next_node.nil?
