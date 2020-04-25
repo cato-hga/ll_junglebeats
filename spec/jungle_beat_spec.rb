@@ -22,4 +22,15 @@ RSpec.describe "JungleBeat" do
 
     expect(jungle_beat.count).to eql(3)
   end
+
+  it "plays beats" do
+    jungle_beat = JungleBeat.new
+
+    jungle_beat.append "boom bap boom bap"
+
+    jungle_beat.play
+
+    expect(jungle_beat.play).to eql("boom bap boom bap")
+
+  end
 end
