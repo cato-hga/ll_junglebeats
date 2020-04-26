@@ -102,7 +102,6 @@ class LinkedList
       end
     end
     popped_node = current_node.next_node.data
-    puts "popped_node: #{popped_node}"
     current_node.next_node = nil
     return popped_node
   end
