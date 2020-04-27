@@ -1,15 +1,16 @@
 require_relative "../lib/linked_list"
 
-
 RSpec.describe "LinkedList" do
   it "is created with attribute head set to nil by default" do
     llist = LinkedList.new
+
     expect(llist.head).to eql(nil)
   end
 
   it "returns append data" do
     llist = LinkedList.new
     llist.append("algo")
+
     expect(llist.append("algo")).to eql("algo")
   end
 
@@ -17,6 +18,7 @@ RSpec.describe "LinkedList" do
     llist = LinkedList.new
     llist.append("algo")
     llist.append("deep")
+
     expect(llist.head.data).to eql("algo")
     expect(llist.head.next_node.data).to eql("deep")
   end
@@ -25,6 +27,7 @@ RSpec.describe "LinkedList" do
     list = LinkedList.new
     list.append("algo")
     list.append("deep")
+
     expect(list.count).to eql(2)
   end
 
@@ -34,6 +37,7 @@ RSpec.describe "LinkedList" do
     list.append("deep")
     list.prepend("prepend")
     list.insert(1, "hola")
+
     expect(list.to_string).to eql("prepend hola algo deep")
   end
 
@@ -42,6 +46,7 @@ RSpec.describe "LinkedList" do
     list.append("algo")
     list.append("deep")
     list.prepend("prepend")
+
     expect(list.to_string).to eql("prepend algo deep")
   end
 
@@ -51,6 +56,7 @@ RSpec.describe "LinkedList" do
     list.append("deep")
     list.prepend("prepend")
     list.insert(1, "hola")
+
     expect(list.to_string).to eql("prepend hola algo deep")
   end
 
@@ -61,7 +67,6 @@ RSpec.describe "LinkedList" do
     list.append("shi")
     list.append("shu")
     list.append("blop")
-    
     list.find(2, 1)
 
     expect(list.find(2,1)).to eql("shi")
@@ -70,13 +75,8 @@ RSpec.describe "LinkedList" do
 
   it "returns back true of false whether the value is in the list" do
     list = LinkedList.new
-
     list.append("deep")
     list.append("woo")
-    list.append("shi")
-    list.append("shu")
-    list.append("blop")
-
     list.includes?("deep")
     list.includes?("dep")
 
@@ -84,29 +84,13 @@ RSpec.describe "LinkedList" do
     expect(list.includes?("dep")).to eql(false)
   end
 
-  # it "returns removed element" do
-  #   list = LinkedList.new
-
-  #   list.append("deep")
-  #   list.append("woo")
-  #   list.append("shi")
-  #   list.append("shu")
-
-  #   list.pop
-    
-  #   expect(list.pop).to eql("shu")
-  # end
-
   it "removes elements the last element from the list" do
     list = LinkedList.new
-
     list.append("deep")
     list.append("woo")
     list.append("shi")
-    list.append("shu")
-
     list.pop
     
-    expect(list.to_string).to eql("deep woo shi")
+    expect(list.to_string).to eql("deep woo")
   end
 end

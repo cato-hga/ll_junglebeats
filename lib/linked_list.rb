@@ -10,13 +10,11 @@ class LinkedList
 
   def append(value)
     node = Node.new(value)
-    
     if @head == nil
       @head = node
     else
       tail_node.next_node = node
     end
-    
     node.data
   end
 
@@ -33,7 +31,6 @@ class LinkedList
   def to_string
     current_node = @head
     string_array = []
-
     while !current_node.nil?
       string_array << "#{current_node.data}"
       current_node = current_node.next_node
@@ -62,14 +59,11 @@ class LinkedList
 
   def find(position, amount_return)
     node = @head
-
     n = 0
-
     while n != position do
       node = node.next_node
       n += 1
     end
-    
     n = 0
     array_string = []
     while n != amount_return do
@@ -78,17 +72,14 @@ class LinkedList
       node = node.next_node
       n += 1
     end
-    
     array_string.join(" ")
   end
 
   def includes?(value)
     node = @head
-
     unless node.nil? || node.data == value 
       node = node.next_node
     end
-
     node ? node.data == value : false
   end
 
@@ -110,7 +101,6 @@ class LinkedList
 
   def tail_node  
     current_node = @head
-
     while !current_node.next_node.nil?
       current_node = current_node.next_node
     end

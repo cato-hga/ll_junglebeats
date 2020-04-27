@@ -15,7 +15,6 @@ class JungleBeat
 
   def append(values)
     values = values.split(" ")
-
     values.map do |value|
       if ACCEPTED_BEATS.include?(value)
         @list.append(value)
@@ -23,13 +22,11 @@ class JungleBeat
         "wrong beat"
       end
     end
-
     values.join(" ")
   end
 
   def prepend(values)
     values = values.split(" ")
-
     values.map do |value|
       if ACCEPTED_BEATS.include?(value)
         @list.prepend(value)
@@ -37,7 +34,6 @@ class JungleBeat
         "wrong beat"
       end
     end
-
     values.join(" ")
   end
 
